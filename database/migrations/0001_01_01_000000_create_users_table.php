@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('pin', 6)->nullable();
             $table->boolean('is_first_login')->default(true);
-            $table->foreignId('role_id')->nullable()->constrained('roles')->onDelete('set null');
+            $table->unsignedTinyInteger('role')->default(0)->comment('0=admin,1=dosen,2=asisten,3=mahasiswa');
             $table->rememberToken();
             $table->timestamps();
         });
