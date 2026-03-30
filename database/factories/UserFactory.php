@@ -23,12 +23,20 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        //protected $fillable = [
+        //        'name',
+        //        'email',
+        //        'password',
+        //        'pin',
+        //        'role',
+        //        'is_first_login',
+        //    ];
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'pin' => fake()->numberBetween(1000, 9999),
+            'role' => fake()->numberBetween(1, 3),
+            'is_first_login' => true,
         ];
     }
 
