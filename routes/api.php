@@ -26,3 +26,7 @@ Route::middleware('auth:sanctum')->prefix('auth')->group(function () {
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+include __DIR__ . '/api/admin_route.php';
+include __DIR__ . '/api/assistant_route.php';
+include __DIR__ . '/api/instructor_route.php';
